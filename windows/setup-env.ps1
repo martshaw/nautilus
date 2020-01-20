@@ -1,6 +1,5 @@
 <#PSScriptInfo
 .VERSION 1.0
-.GUID 4d6860ae-67e0-46ed-9a8d-0e9a3e4f4631
 .AUTHOR martshaw
 .COPYRIGHT 2020
 .TAGS Windows, Web Development,
@@ -60,8 +59,6 @@ switch ($result) {
     RefreshEnv.cmd
     Write-Output "Results:"
     Write-Output "Verify installation of GitHub Desktop and VS Code manually."
-    $awsVersion = aws.exe --version
-    Write-Output "aws: $awsVersion"
     $dockerVersion = docker.exe --version
     Write-Output "docker: $dockerVersion"
     $gitVersion = git.exe --version
