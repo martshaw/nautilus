@@ -56,15 +56,6 @@ update_shell() {
   chsh -s "$(which zsh)"
 }
 
-gem_install_or_update() {
-  if gem list "$1" --installed > /dev/null; then
-    gem update "$@"
-  else
-    gem install "$@"
-    rbenv rehash
-  fi
-}
-
 app_is_installed() {
   local app_name
   app_name=$(echo "$1" | cut -d'-' -f1)
@@ -139,6 +130,7 @@ brew update
 brew bundle --file=- <<EOF
 
 tap "homebrew/services"
+tap mongodb/brew
 
 # Unix
 brew "git"
@@ -163,7 +155,7 @@ brew "imagemagick"
 brew "postgres", restart_service: true
 brew "redis", restart_service: true
 brew "mysql"
-brew "gcollazo-mongodb"
+brew "mongodb-community"
 
 # Utilities
 brew "wget"
