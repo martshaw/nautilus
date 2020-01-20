@@ -1,0 +1,2 @@
+# nautilus
+machine setup scripts
