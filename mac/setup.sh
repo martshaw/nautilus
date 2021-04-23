@@ -130,7 +130,6 @@ brew update
 brew bundle --file=- <<EOF
 
 tap "homebrew/services"
-tap mongodb/brew
 
 # Unix
 brew "git"
@@ -155,7 +154,6 @@ brew "imagemagick"
 brew "postgres", restart_service: true
 brew "redis", restart_service: true
 brew "mysql"
-brew "mongodb-community"
 
 # Utilities
 brew "wget"
@@ -168,7 +166,8 @@ brew "fasd"
 # Terminal
 brew "peco"
 
-# Applications
+
+# Application
 cask "vlc"                    unless Dir.exists?('/Applications/VLC.app')
 cask "android-studio"         unless Dir.exists?('/Applications/Android Studio.app')
 cask "iterm2"                 unless Dir.exists?('/Applications/iTerm.app')
@@ -181,7 +180,7 @@ cask "flux"                   unless Dir.exists?('/Applications/Flux.app')
 cask "1password"              unless Dir.exists?('/Applications/1Password.app')
 cask "dropbox"                unless Dir.exists?('/Applications/Dropbox.app')
 cask "google-backup-and-sync" unless Dir.exists?('/Applications/Google Drive.app')
-cask "tower2"                 unless Dir.exists?('/Applications/Tower.app')
+cask "GitHub"                 unless Dir.exists?('/Applications/Github')
 cask "virtualbox"             unless Dir.exists?('/Applications/Virtual Box.app')
 cask "slack"                  unless Dir.exists?('/Applications/Slack.app')
 cask "tunnelblick"            unless Dir.exists?('/Applications/Tunnelblick.app')
@@ -217,8 +216,8 @@ cask "renamer"                unless Dir.exists?('/Applications/Renamer.app')
 cask "sip"                    unless Dir.exists?('/Applications/Sip.app')
 cask "visual-studio-code"     unless Dir.exists?('/Applications/Visual Studio Code.app')
 cask "vivaldi"                unless Dir.exists?('/Applications/Vivaldi.app')
-cask "vmware-fusion"          unless Dir.exists?('/Applications/Vmware.app')
-
+cask "obsidian"	              unless Dir.exists?('/Applications/Obsidian.app')
+cask "mongodb-compass"	      unless Dir.exists?('/Applications/Mongodb Compass.app')
 
 EOF
 
@@ -226,7 +225,7 @@ brew cleanup
 
 inform "Installed apps:"
 
-brew cask list
+cask list
 
 # Install npm packages
 npm install vtop -g --silent
