@@ -86,7 +86,7 @@ inform "Nautilus is just going off to download and install your sepup"
 #set -e
 
 # Check if command line tools are installed.
-xcode-select -p >/dev/null
+sudo xcode-select -p >/dev/null
 
 if [[ $? != 0 ]]; then
   echo 'Command line tools are not installed...'
@@ -168,30 +168,18 @@ brew "peco"
 
 
 # Application
-cask "vlc"                    unless Dir.exists?('/Applications/VLC.app')
-cask "android-studio"         unless Dir.exists?('/Applications/Android Studio.app')
+cask "vlc"                    unless Dir.exists?('/Applications/VLC.app')sss
 cask "iterm2"                 unless Dir.exists?('/Applications/iTerm.app')
 cask "google-chrome"          unless Dir.exists?('/Applications/Google Chrome.app')
-cask "blisk"                  unless Dir.exists?('/Applications/Blisk.app')
 cask "firefox"                unless Dir.exists?('/Applications/Firefox.app')
-cask "sip"                    unless Dir.exists?('/Applications/Sip.app')
-cask "resolutionator"         unless Dir.exists?('/Applications/Resolutionator.app')
-cask "flux"                   unless Dir.exists?('/Applications/Flux.app')
-cask "1password"              unless Dir.exists?('/Applications/1Password.app')
-cask "dropbox"                unless Dir.exists?('/Applications/Dropbox.app')
-cask "google-backup-and-sync" unless Dir.exists?('/Applications/Google Drive.app')
 cask "GitHub"                 unless Dir.exists?('/Applications/Github')
-cask "virtualbox"             unless Dir.exists?('/Applications/Virtual Box.app')
 cask "slack"                  unless Dir.exists?('/Applications/Slack.app')
 cask "tunnelblick"            unless Dir.exists?('/Applications/Tunnelblick.app')
 cask "spotify"                unless Dir.exists?('/Applications/Spotify.app')
-cask "skype"                  unless Dir.exists?('/Applications/Skype.app')
 cask "postico"                unless Dir.exists?('/Applications/Postico.app')
 cask "mysqlworkbench"         unless Dir.exists?('/Applications/MySqlWorkbench.app')
-cask "dash"                   unless Dir.exists?('/Applications/Dash.app')
 cask "ivpn"                   unless Dir.exists?('/Applications/IVPN.app')
 cask "alfred"                 unless Dir.exists?('/Applications/Alfred 4.app')
-cask "sketch"                 unless Dir.exists?('/Applications/Sketch.app')
 cask "keybase"                unless Dir.exists?('/Applications/Keybase.app')
 cask "docker"                 unless Dir.exists?('/Applications/Docker.app')
 cask "franz"                  unless Dir.exists?('/Applications/Franz.app')
@@ -203,21 +191,18 @@ cask "macdown"                unless Dir.exists?('/Applications/Macdown.app')
 cask "kaleidoscope"           unless Dir.exists?('/Applications/Kaleidoscope.app')
 cask "imageoptim"             unless Dir.exists?('/Applications/Imageoptim.app')
 cask "brave-browser"          unless Dir.exists?('/Applications/Brave Browser.app')
-cask "aerial"                 unless Dir.exists?('/Applications/Aerial.app')
-cask "blisk"                  unless Dir.exists?('/Applications/Blisk.app')
+cask "eqmac"                  unless Dir.exists?('/Applications/EqMac.app')
 cask "canary"                 unless Dir.exists?('/Applications/Canary.app')
 cask "dropbox"                unless Dir.exists?('/Applications/Dropbox.app')
 cask "firefox"                unless Dir.exists?('/Applications/Firefox.app')
 cask "hyper"                  unless Dir.exists?('/Applications/Hyper.app')
 cask "hyperdock"              unless Dir.exists?('/Applications/Hyperdock.app')
-cask "kap"                    unless Dir.exists?('/Applications/Kap.app')
 cask "karabiner-elements"     unless Dir.exists?('/Applications/Karabiner.app')
 cask "renamer"                unless Dir.exists?('/Applications/Renamer.app')
-cask "sip"                    unless Dir.exists?('/Applications/Sip.app')
 cask "visual-studio-code"     unless Dir.exists?('/Applications/Visual Studio Code.app')
-cask "vivaldi"                unless Dir.exists?('/Applications/Vivaldi.app')
 cask "obsidian"	              unless Dir.exists?('/Applications/Obsidian.app')
 cask "mongodb-compass"	      unless Dir.exists?('/Applications/Mongodb Compass.app')
+cask "authy"	                unless Dir.exists?('/Applications/Authy')ss
 
 EOF
 
@@ -253,7 +238,3 @@ npm install vsce::vsce -g --silent
 ssh_key_setup
 
 inform "Setup complete!!!"
-
-
-
-
