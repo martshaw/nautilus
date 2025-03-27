@@ -168,7 +168,7 @@ brew "peco"
 
 
 # Application
-cask "vlc"                    unless Dir.exists?('/Applications/VLC.app')sss
+cask "vlc"                    unless Dir.exists?('/Applications/VLC.app')
 cask "iterm2"                 unless Dir.exists?('/Applications/iTerm.app')
 cask "google-chrome"          unless Dir.exists?('/Applications/Google Chrome.app')
 cask "firefox"                unless Dir.exists?('/Applications/Firefox.app')
