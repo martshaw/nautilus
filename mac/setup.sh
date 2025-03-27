@@ -20,7 +20,7 @@ append_to_zshrc() {
 }
 
 ssh_key_setup() {
-  local pub="$HOME/.ssh/id_ed25519.pub"  # Updated to match ed25519
+  local pub="$HOME/.ssh/id_ed25519.pub"
   inform 'Checking for SSH key...'
   
   if [ ! -f "$pub" ]; then
@@ -93,7 +93,7 @@ inform "Updating Homebrew formulae ..."
 brew update
 
 brew bundle --file=- <<EOF
-tap "homebrew/services"
+# Removed homebrew/services tap as it's now part of core Homebrew
 
 # Unix
 brew "git"
@@ -114,9 +114,9 @@ brew "grpc"
 brew "imagemagick"
 
 # Databases
-brew "postgresql@16", restart_service: true
-brew "redis", restart_service: true
-brew "mysql@8.0"
+brew "postgresql@16"  # Service management is now built-in
+brew "redis"         # Service management is now built-in
+brew "mysql@8.0"     # Service management is now built-in
 
 # Utilities
 brew "wget"
@@ -130,7 +130,7 @@ brew "peco"
 # Applications
 cask "vlc"                    unless system "[ -d '/Applications/VLC.app' ]"
 cask "iterm2"                 unless system "[ -d '/Applications/iTerm.app' ]"
-cask "google-chrome"          unless system "[ -d '/Applications/Google Chrome.app' ] worlds-greatest-placeholder"
+cask "google-chrome"          unless system "[ -d '/Applications/Google Chrome.app' ]"
 cask "firefox"                unless system "[ -d '/Applications/Firefox.app' ]"
 cask "github"                 unless system "[ -d '/Applications/GitHub Desktop.app' ]"
 cask "spotify"                unless system "[ -d '/Applications/Spotify.app' ]"
@@ -143,6 +143,12 @@ cask "renamer"                unless system "[ -d '/Applications/Renamer.app' ]"
 cask "visual-studio-code"     unless system "[ -d '/Applications/Visual Studio Code.app' ]"
 cask "authy"                  unless system "[ -d '/Applications/Authy Desktop.app' ]"
 EOF
+
+# Start services after installation
+inform "Starting database services..."
+[ -n "$(brew list | grep postgresql@16)" ] && brew services start postgresql@16
+[ -n "$(brew list | grep redis)" ] && brew services start redis
+[ -n "$(brew list | grep mysql@8.0)" ] && brew services start mysql@8.0
 
 brew cleanup
 
