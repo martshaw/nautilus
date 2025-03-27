@@ -20,7 +20,7 @@ append_to_zshrc() {
 }
 
 ssh_key_setup() {
-  local pub="$HOME/.ssh/id_rsa.pub"
+  local pub="$HOME/.ssh/id_ed25519.pub"  # Updated to match ed25519
   inform 'Checking for SSH key...'
   
   if [ ! -f "$pub" ]; then
@@ -52,11 +52,6 @@ update_shell() {
     echo "$(which zsh)" | sudo tee -a /etc/shells
   fi
   chsh -s "$(which zsh)"
-}
-
-app_is_installed() {
-  local app_name="$1"
-  [ -d "/Applications/$app_name.app" ]
 }
 
 # ASCII art remains unchanged...
@@ -133,20 +128,20 @@ brew "fasd"
 brew "peco"
 
 # Applications
-cask "vlc"                    unless app_is_installed "VLC"
-cask "iterm2"                 unless app_is_installed "iTerm"
-cask "google-chrome"          unless app_is_installed "Google Chrome"
-cask "firefox"                unless app_is_installed "Firefox"
-cask "github"                 unless app_is_installed "GitHub Desktop"
-cask "spotify"                unless app_is_installed "Spotify"
-cask "postman"                unless app_is_installed "Postman"
-cask "macdown"                unless app_is_installed "MacDown"
-cask "kaleidoscope"           unless app_is_installed "Kaleidoscope"
-cask "imageoptim"             unless app_is_installed "ImageOptim"
-cask "brave-browser"          unless app_is_installed "Brave Browser"
-cask "renamer"                unless app_is_installed "Renamer"
-cask "visual-studio-code"     unless app_is_installed "Visual Studio Code"
-cask "authy"                  unless app_is_installed "Authy Desktop"
+cask "vlc"                    unless system "[ -d '/Applications/VLC.app' ]"
+cask "iterm2"                 unless system "[ -d '/Applications/iTerm.app' ]"
+cask "google-chrome"          unless system "[ -d '/Applications/Google Chrome.app' ] worlds-greatest-placeholder"
+cask "firefox"                unless system "[ -d '/Applications/Firefox.app' ]"
+cask "github"                 unless system "[ -d '/Applications/GitHub Desktop.app' ]"
+cask "spotify"                unless system "[ -d '/Applications/Spotify.app' ]"
+cask "postman"                unless system "[ -d '/Applications/Postman.app' ]"
+cask "macdown"                unless system "[ -d '/Applications/MacDown.app' ]"
+cask "kaleidoscope"           unless system "[ -d '/Applications/Kaleidoscope.app' ]"
+cask "imageoptim"             unless system "[ -d '/Applications/ImageOptim.app' ]"
+cask "brave-browser"          unless system "[ -d '/Applications/Brave Browser.app' ]"
+cask "renamer"                unless system "[ -d '/Applications/Renamer.app' ]"
+cask "visual-studio-code"     unless system "[ -d '/Applications/Visual Studio Code.app' ]"
+cask "authy"                  unless system "[ -d '/Applications/Authy Desktop.app' ]"
 EOF
 
 brew cleanup
