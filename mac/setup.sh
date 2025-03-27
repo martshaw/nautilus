@@ -202,7 +202,7 @@ cask "renamer"                unless Dir.exists?('/Applications/Renamer.app')
 cask "visual-studio-code"     unless Dir.exists?('/Applications/Visual Studio Code.app')
 cask "obsidian"	              unless Dir.exists?('/Applications/Obsidian.app')
 cask "mongodb-compass"	      unless Dir.exists?('/Applications/Mongodb Compass.app')
-cask "authy"	                unless Dir.exists?('/Applications/Authy')ss
+cask "authy"	                unless Dir.exists?('/Applications/Authy')
 
 EOF
 
@@ -210,7 +210,7 @@ brew cleanup
 
 inform "Installed apps:"
 
-cask list
+brew --cask list
 
 # Install npm packages
 npm install vtop -g --silent
