@@ -137,4 +137,30 @@ cask "vlc"                    unless app_is_installed "VLC"
 cask "iterm2"                 unless app_is_installed "iTerm"
 cask "google-chrome"          unless app_is_installed "Google Chrome"
 cask "firefox"                unless app_is_installed "Firefox"
-cask "github"                 unless app_is_installed "Git
+cask "github"                 unless app_is_installed "GitHub Desktop"
+cask "spotify"                unless app_is_installed "Spotify"
+cask "postman"                unless app_is_installed "Postman"
+cask "macdown"                unless app_is_installed "MacDown"
+cask "kaleidoscope"           unless app_is_installed "Kaleidoscope"
+cask "imageoptim"             unless app_is_installed "ImageOptim"
+cask "brave-browser"          unless app_is_installed "Brave Browser"
+cask "renamer"                unless app_is_installed "Renamer"
+cask "visual-studio-code"     unless app_is_installed "Visual Studio Code"
+cask "authy"                  unless app_is_installed "Authy Desktop"
+EOF
+
+brew cleanup
+
+inform "Installed casks:"
+brew list --cask
+
+# Install npm packages
+if command -v npm >/dev/null 2>&1; then
+  npm install -g eslint --silent
+else
+  inform "npm not found, skipping ESLint installation"
+fi
+
+ssh_key_setup
+
+inform "Setup complete!!!"
