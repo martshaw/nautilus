@@ -126,6 +126,7 @@ brew "logstalgia"
 brew "git-extras"
 brew "fasd"
 brew "peco"
+brew "nvim"
 
 # Applications
 cask "vlc"                    unless system "[ -d '/Applications/VLC.app' ]"
