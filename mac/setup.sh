@@ -173,35 +173,15 @@ cask "iterm2"                 unless Dir.exists?('/Applications/iTerm.app')
 cask "google-chrome"          unless Dir.exists?('/Applications/Google Chrome.app')
 cask "firefox"                unless Dir.exists?('/Applications/Firefox.app')
 cask "GitHub"                 unless Dir.exists?('/Applications/Github')
-cask "slack"                  unless Dir.exists?('/Applications/Slack.app')
-cask "tunnelblick"            unless Dir.exists?('/Applications/Tunnelblick.app')
 cask "spotify"                unless Dir.exists?('/Applications/Spotify.app')
-cask "postico"                unless Dir.exists?('/Applications/Postico.app')
-cask "mysqlworkbench"         unless Dir.exists?('/Applications/MySqlWorkbench.app')
-cask "ivpn"                   unless Dir.exists?('/Applications/IVPN.app')
-cask "alfred"                 unless Dir.exists?('/Applications/Alfred 4.app')
-cask "keybase"                unless Dir.exists?('/Applications/Keybase.app')
-cask "docker"                 unless Dir.exists?('/Applications/Docker.app')
-cask "franz"                  unless Dir.exists?('/Applications/Franz.app')
 cask "postman"                unless Dir.exists?('/Applications/Postman.app')
-cask "lastpass"               unless Dir.exists?('/Applications/Lastpass.app')
-cask "rocket"                 unless Dir.exists?('/Applications/Rocket.app')
-cask "sequel-pro"             unless Dir.exists?('/Applications/Sequel-pro.app')
 cask "macdown"                unless Dir.exists?('/Applications/Macdown.app')
 cask "kaleidoscope"           unless Dir.exists?('/Applications/Kaleidoscope.app')
 cask "imageoptim"             unless Dir.exists?('/Applications/Imageoptim.app')
 cask "brave-browser"          unless Dir.exists?('/Applications/Brave Browser.app')
-cask "eqmac"                  unless Dir.exists?('/Applications/EqMac.app')
-cask "canary"                 unless Dir.exists?('/Applications/Canary.app')
-cask "dropbox"                unless Dir.exists?('/Applications/Dropbox.app')
 cask "firefox"                unless Dir.exists?('/Applications/Firefox.app')
-cask "hyper"                  unless Dir.exists?('/Applications/Hyper.app')
-cask "hyperdock"              unless Dir.exists?('/Applications/Hyperdock.app')
-cask "karabiner-elements"     unless Dir.exists?('/Applications/Karabiner.app')
 cask "renamer"                unless Dir.exists?('/Applications/Renamer.app')
 cask "visual-studio-code"     unless Dir.exists?('/Applications/Visual Studio Code.app')
-cask "obsidian"	              unless Dir.exists?('/Applications/Obsidian.app')
-cask "mongodb-compass"	      unless Dir.exists?('/Applications/Mongodb Compass.app')
 cask "authy"	                unless Dir.exists?('/Applications/Authy')
 
 EOF
@@ -210,30 +190,10 @@ brew cleanup
 
 inform "Installed apps:"
 
-brew --cask list
+brew list --cask
 
 # Install npm packages
-npm install vtop -g --silent
-npm install eslint -g --silent
-npm install gulp-cli -g --silent
-npm install react-native-cli -g --silent
-npm install artillery -g --silent
-npm install fast-cli -g --silent
-npm install colortest::colortest -g --silent
-npm install cssstats-cli::cssstats -g --silent
-npm install @11ty/eleventy::eleventy -g --silent
 npm install eslint::eslint -g --silent
-npm install fast-cli::fast -g --silent
-npm install @frctl/fractal::fractal -g --silent
-npm install gatsby-cli::gatsby -g --silent
-npm install git-standup::git-standup -g --silent
-npm install hotel::hotel -g --silent
-npm install html-sketchapp-cli::html-sketchapp -g --silent
-npm install imageoptim-cli::imageOptim -g --silent
-npm install pa11y::pa11y -g --silent
-npm install parrotsay::parrotsay -g --silent
-npm install terminalizer::terminalizer -g --silent
-npm install vsce::vsce -g --silent
 
 ssh_key_setup
 
